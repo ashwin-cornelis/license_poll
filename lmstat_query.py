@@ -9,7 +9,8 @@ import datetime
 import getpass
 
 # Declare globals
-lic_files = 'license_files.txt'
+script_path = str(os.path.abspath(os.path.dirname(__file__))) + '/'
+lic_files = script_path + 'license_files.txt'
 snps_lic = os.environ.get('SNPSLMD_LICENSE_FILE', '27020@cn-asic-01.cornelisnetworks.com')
 lmutil = os.environ.get('SCL_ROOT', '/nfs/shares/asic/tools/synopsys/scl/2021.03') + '/linux64/bin/lmutil'
 log_path = '/home/' + getpass.getuser() + '/lmstat_poll_logs/'

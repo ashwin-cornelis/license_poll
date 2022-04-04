@@ -57,7 +57,10 @@ def run_lmstat(lic_file = ''):
         fle = list(map(str.lstrip, list(filter(None, f.splitlines())) ));
         
         # Total licenses avail & Licenses in use
+        print(fle);
         l1 = re.search(r'(.+):.+\(Total of (\d+) licenses? issued;  Total of (\d+) licenses? in use\)', fle[0])
+        if not l1:
+            continue
         lic_usage_l[l1.group(1)] = {'total' : l1.group(2), 'used' : l1.group(3), 'users' : []}
     
         # In use by User
